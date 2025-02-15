@@ -15,6 +15,15 @@ provider "google" {
 resource "google_storage_bucket" "mybucket"{
     name="my-terraform-bucket-lmq645547966785"
     location="us-west1"
+
+    versioning {
+        enabled=true
+    }
+
+    labels = {
+        environment = "student-lab"
+        managed_by= "terraform"
+    }
 }
 
 output "bucket_name" { 
